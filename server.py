@@ -6,7 +6,7 @@ import anthropic
 app = Flask(__name__, static_folder='.', static_url_path='')
 client = anthropic.Anthropic(api_key=os.environ['ANTHROPIC_API_KEY'])
 
-MODEL = 'claude-sonnet-4-20250514'
+MODEL = 'claude-sonnet-4-6'
 
 
 def build_prompt(data):

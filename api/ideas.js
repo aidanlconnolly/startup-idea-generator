@@ -2,7 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 
 export const config = { runtime: 'edge' };
 
-const MODEL = 'claude-sonnet-4-20250514';
+const MODEL = 'claude-sonnet-4-6';
 
 function buildPrompt(data) {
   const domain = (data.domain || 'random').trim();
