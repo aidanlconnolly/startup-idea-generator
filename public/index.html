@@ -11,7 +11,6 @@
     --ink-soft: #525866;
     --line: #e6e8eb;
     --line-strong: #d0d4da;
-    --accent: #111418;
     --accent-soft: #f4f5f7;
     --gold: #b88a2b;
     --danger: #b3261e;
@@ -26,164 +25,147 @@
   }
   header {
     border-bottom: 1px solid var(--line);
-    padding: 18px 28px;
+    padding: 14px 28px;
     display: flex; align-items: center; justify-content: space-between;
     position: sticky; top: 0; background: rgba(255,255,255,0.92);
     backdrop-filter: saturate(140%) blur(8px); z-index: 10;
   }
-  .brand { font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
-  .brand small { color: var(--ink-soft); font-weight: 400; margin-left: 8px; }
-  nav { display: flex; gap: 8px; }
+  .brand { font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+  nav { display: flex; gap: 8px; align-items: center; }
   .nav-btn {
     background: transparent; border: 1px solid var(--line); color: var(--ink);
-    padding: 8px 14px; border-radius: 999px; font-size: 13px; cursor: pointer;
+    padding: 7px 13px; border-radius: 999px; font-size: 13px; cursor: pointer;
     font-family: inherit;
   }
   .nav-btn:hover { border-color: var(--line-strong); }
   .nav-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
+  .nav-surprise {
+    background: transparent; border: none; color: var(--ink-soft);
+    font-size: 12px; cursor: pointer; font-family: inherit; padding: 6px 8px;
+    border-radius: 8px; white-space: nowrap;
+  }
+  .nav-surprise:hover { color: var(--ink); background: var(--accent-soft); }
 
-  main { max-width: 880px; margin: 0 auto; padding: 48px 28px 96px; }
+  main { max-width: 820px; margin: 0 auto; padding: 40px 24px 96px; }
 
-  h1 { font-size: 34px; letter-spacing: -0.02em; margin: 0 0 8px; font-weight: 600; }
-  .sub { color: var(--ink-soft); font-size: 15px; margin: 0 0 36px; }
+  h1 { font-size: 30px; letter-spacing: -0.02em; margin: 0 0 6px; font-weight: 600; }
+  .sub { color: var(--ink-soft); font-size: 14px; margin: 0 0 30px; }
 
-  .form-section { margin-bottom: 28px; }
-  .label { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 10px; display: block; }
+  .form-section { margin-bottom: 22px; }
+  .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink-soft); margin-bottom: 9px; display: block; }
   select, textarea {
-    width: 100%; padding: 12px 14px; border: 1px solid var(--line-strong);
-    border-radius: 10px; font-size: 15px; font-family: inherit; color: var(--ink);
+    width: 100%; padding: 10px 12px; border: 1px solid var(--line-strong);
+    border-radius: 9px; font-size: 14px; font-family: inherit; color: var(--ink);
     background: white; outline: none;
   }
   select:focus, textarea:focus { border-color: var(--ink); }
-  textarea { resize: vertical; min-height: 80px; }
+  textarea { resize: vertical; min-height: 72px; }
 
-  .radio-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  .filter-grid {
+    display: flex; flex-wrap: wrap; gap: 8px;
   }
-  .radio-card {
-    border: 1px solid var(--line-strong); border-radius: 10px; padding: 14px;
-    cursor: pointer; transition: all 0.12s;
+  .filter-card {
+    border: 1px solid var(--line-strong); border-radius: 8px; padding: 10px 14px;
+    cursor: pointer; transition: all 0.1s; font-size: 13px;
   }
-  .radio-card:hover { border-color: var(--ink-soft); }
-  .radio-card.selected { border-color: var(--ink); background: var(--accent-soft); }
-  .radio-card input { display: none; }
-  .radio-card .rc-title { font-weight: 600; font-size: 14px; }
-  .radio-card .rc-desc { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+  .filter-card:hover { border-color: var(--ink-soft); }
+  .filter-card.selected { border-color: var(--ink); background: var(--accent-soft); font-weight: 500; }
+  .filter-card input { display: none; }
+  .filter-card .fc-title { font-size: 13px; font-weight: 500; }
+  .filter-card .fc-desc { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
 
-  .actions { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+  .actions { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
   button.primary {
-    background: var(--ink); color: white; border: none; padding: 13px 22px;
-    border-radius: 10px; font-size: 15px; font-weight: 500; cursor: pointer;
+    background: var(--ink); color: white; border: none; padding: 11px 20px;
+    border-radius: 9px; font-size: 14px; font-weight: 500; cursor: pointer;
     font-family: inherit;
   }
   button.primary:hover { background: #000; }
   button.primary:disabled { opacity: 0.5; cursor: not-allowed; }
   button.ghost {
     background: white; color: var(--ink); border: 1px solid var(--line-strong);
-    padding: 13px 22px; border-radius: 10px; font-size: 15px; cursor: pointer;
+    padding: 11px 20px; border-radius: 9px; font-size: 14px; cursor: pointer;
     font-family: inherit;
   }
   button.ghost:hover { border-color: var(--ink); }
-
-  .divider-or {
-    display: flex; align-items: center; gap: 12px; margin: 32px 0;
-    color: var(--ink-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
-  }
-  .divider-or::before, .divider-or::after {
-    content: ""; flex: 1; height: 1px; background: var(--line);
-  }
-
-  .surprise {
-    border: 1px dashed var(--line-strong); border-radius: 12px; padding: 22px;
-    text-align: center;
-  }
-  .surprise h3 { margin: 0 0 6px; font-size: 17px; }
-  .surprise p { margin: 0 0 14px; color: var(--ink-soft); font-size: 14px; }
+  button.ghost:disabled { opacity: 0.4; cursor: not-allowed; }
 
   /* Results */
-  #results { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+  #results { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
   .card {
-    border: 1px solid var(--line); border-radius: 14px; padding: 24px;
+    border: 1px solid var(--line); border-radius: 12px; padding: 22px;
     background: white; box-shadow: var(--shadow);
-    animation: cardIn 0.35s ease-out;
+    animation: cardIn 0.3s ease-out;
   }
   @keyframes cardIn {
-    from { opacity: 0; transform: translateY(6px); }
+    from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
   }
   .card h2 {
-    font-size: 22px; letter-spacing: -0.01em; margin: 0 0 14px; font-weight: 600;
-    display: flex; align-items: center; gap: 10px;
+    font-size: 19px; letter-spacing: -0.01em; margin: 0 0 14px; font-weight: 600;
+    line-height: 1.3;
   }
   .card .section-label {
-    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--ink-soft); margin: 14px 0 4px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-soft); margin: 12px 0 3px;
   }
-  .card .section-body { font-size: 15px; color: var(--ink); white-space: pre-wrap; }
-  .card .section-body ol { margin: 6px 0; padding-left: 22px; }
+  .card .section-body { font-size: 14px; color: var(--ink); white-space: pre-wrap; }
+  .card .section-body ol { margin: 4px 0; padding-left: 20px; }
+  .name-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .name-chip {
+    display: inline-block; font-size: 12px; padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--line-strong); color: var(--ink-soft); font-weight: 500;
+    letter-spacing: 0.01em;
+  }
   .card .card-actions {
-    display: flex; gap: 8px; margin-top: 18px; padding-top: 16px;
+    display: flex; gap: 7px; margin-top: 16px; padding-top: 14px;
     border-top: 1px solid var(--line);
   }
   .card .card-actions button {
-    font-size: 13px; padding: 8px 14px; border-radius: 8px;
+    font-size: 12px; padding: 7px 12px; border-radius: 7px;
     background: white; border: 1px solid var(--line-strong); cursor: pointer;
     font-family: inherit; color: var(--ink);
   }
   .card .card-actions button:hover { border-color: var(--ink); }
   .card .card-actions button.saved { background: #e9f5ee; border-color: #bcdcc7; color: #1f6b3a; }
 
-  .cursor {
-    display: inline-block; width: 8px; height: 16px; background: var(--ink);
-    vertical-align: text-bottom; animation: blink 1s infinite;
-  }
-  @keyframes blink { 50% { opacity: 0; } }
-
-  .status { color: var(--ink-soft); font-size: 14px; margin-top: 16px; }
+  .status { font-size: 13px; color: var(--ink-soft); margin-top: 14px; min-height: 20px; }
+  .regen-warning { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
 
   .toast {
-    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-    background: var(--ink); color: white; padding: 10px 18px; border-radius: 999px;
-    font-size: 13px; opacity: 0; transition: opacity 0.2s; pointer-events: none;
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: var(--ink); color: white; padding: 9px 16px; border-radius: 999px;
+    font-size: 12px; opacity: 0; transition: opacity 0.2s; pointer-events: none;
     z-index: 100;
   }
   .toast.show { opacity: 1; }
 
   /* Saved view */
-  .saved-list { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+  .saved-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
   .saved-row {
-    border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: white;
+    border: 1px solid var(--line); border-radius: 10px; padding: 16px; background: white;
   }
   .saved-row .head {
-    display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;
-    margin-bottom: 8px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 6px;
   }
-  .saved-row h3 { margin: 0; font-size: 17px; font-weight: 600; }
+  .saved-row h3 { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.3; }
   .badge {
-    display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 999px;
-    background: var(--accent-soft); color: var(--ink-soft); margin-left: 8px;
-    font-weight: 500;
+    display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--ink-soft); margin-left: 7px; font-weight: 500;
   }
-  .stars { display: inline-flex; gap: 2px; }
-  .star {
-    cursor: pointer; font-size: 18px; color: var(--line-strong); user-select: none;
-    line-height: 1;
-  }
+  .stars { display: inline-flex; gap: 1px; }
+  .star { cursor: pointer; font-size: 17px; color: var(--line-strong); user-select: none; line-height: 1; }
   .star.on { color: var(--gold); }
-  .saved-row textarea { font-size: 13px; min-height: 50px; margin-top: 8px; }
-  .saved-row .row-actions {
-    display: flex; gap: 8px; margin-top: 10px; align-items: center;
-  }
+  .saved-row textarea { font-size: 13px; min-height: 44px; margin-top: 7px; }
+  .saved-row .row-actions { display: flex; gap: 7px; margin-top: 8px; align-items: center; }
   .saved-row .row-actions button {
-    font-size: 12px; padding: 6px 12px; border-radius: 6px; cursor: pointer;
+    font-size: 12px; padding: 5px 11px; border-radius: 6px; cursor: pointer;
     border: 1px solid var(--line-strong); background: white; font-family: inherit;
   }
   .saved-row .row-actions button.danger { color: var(--danger); border-color: #f0caca; }
-  .empty { color: var(--ink-soft); text-align: center; padding: 40px 0; font-size: 14px; }
-  .saved-controls {
-    display: flex; justify-content: space-between; align-items: center; gap: 10px;
-    margin-top: 24px; flex-wrap: wrap;
-  }
+  .empty { color: var(--ink-soft); text-align: center; padding: 36px 0; font-size: 13px; }
+  .saved-controls { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
   .saved-controls select { width: auto; }
 
   .hidden { display: none !important; }
@@ -192,10 +174,11 @@
 <body>
 
 <header>
-  <div class="brand">Startup Idea Generator <small>Claude-powered</small></div>
+  <div class="brand">Startup Idea Generator</div>
   <nav>
     <button class="nav-btn active" data-view="generate">Generate</button>
     <button class="nav-btn" data-view="saved">Saved <span id="saved-count"></span></button>
+    <button class="nav-surprise" id="nav-surprise-btn">✦ Surprise me</button>
   </nav>
 </header>
 
@@ -203,15 +186,7 @@
   <!-- GENERATE VIEW -->
   <section id="view-generate">
     <h1>Find your next startup.</h1>
-    <p class="sub">Five validated ideas with market sizing, competitors, and execution risks — streamed live.</p>
-
-    <div class="surprise">
-      <h3>Not sure where to start?</h3>
-      <p>Get 5 random ideas across a varied mix of domains and problem types.</p>
-      <button class="primary" id="surprise-btn">Surprise me — 5 random ideas</button>
-    </div>
-
-    <div class="divider-or">or pick a direction</div>
+    <p class="sub">Four validated ideas per run — descriptive titles, market sizing, competitors, and name options.</p>
 
     <div class="form-section">
       <label class="label" for="domain">Domain</label>
@@ -228,27 +203,77 @@
 
     <div class="form-section">
       <label class="label">Problem type</label>
-      <div class="radio-grid" id="problem-grid">
-        <label class="radio-card selected">
+      <div class="filter-grid" id="problem-grid">
+        <label class="filter-card selected">
           <input type="radio" name="problemType" value="Niche pain point" checked />
-          <div class="rc-title">Niche pain point</div>
-          <div class="rc-desc">Acute pain felt by a small, well-defined group.</div>
+          <div class="fc-title">Niche pain point</div>
+          <div class="fc-desc">Acute pain, small defined group</div>
         </label>
-        <label class="radio-card">
+        <label class="filter-card">
           <input type="radio" name="problemType" value="Mass market problem" />
-          <div class="rc-title">Mass market</div>
-          <div class="rc-desc">Wide reach, lower per-user willingness to pay.</div>
+          <div class="fc-title">Mass market</div>
+          <div class="fc-desc">Wide reach, high volume</div>
         </label>
-        <label class="radio-card">
+        <label class="filter-card">
           <input type="radio" name="problemType" value="Underserved demographic" />
-          <div class="rc-title">Underserved demographic</div>
-          <div class="rc-desc">A group ignored by current solutions.</div>
+          <div class="fc-title">Underserved demographic</div>
+          <div class="fc-desc">Ignored by current solutions</div>
+        </label>
+        <label class="filter-card">
+          <input type="radio" name="problemType" value="Process inefficiency" />
+          <div class="fc-title">Process inefficiency</div>
+          <div class="fc-desc">Existing workflow that's broken</div>
+        </label>
+        <label class="filter-card">
+          <input type="radio" name="problemType" value="New behavior enabled by technology" />
+          <div class="fc-title">New tech behavior</div>
+          <div class="fc-desc">Something now possible that wasn't</div>
         </label>
       </div>
     </div>
 
     <div class="form-section">
-      <label class="label" for="context">Additional context <span style="color: var(--ink-soft); font-weight: 400;">(optional)</span></label>
+      <label class="label">Execution mode</label>
+      <div class="filter-grid" id="mode-grid">
+        <label class="filter-card selected">
+          <input type="radio" name="execMode" value="any" checked />
+          <div class="fc-title">Any</div>
+        </label>
+        <label class="filter-card">
+          <input type="radio" name="execMode" value="Remote-first" />
+          <div class="fc-title">Remote-first</div>
+          <div class="fc-desc">Fully online, no field work</div>
+        </label>
+        <label class="filter-card">
+          <input type="radio" name="execMode" value="Requires field work" />
+          <div class="fc-title">Field required</div>
+          <div class="fc-desc">In-person or physical component</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <label class="label">AI involvement</label>
+      <div class="filter-grid" id="ai-grid">
+        <label class="filter-card selected">
+          <input type="radio" name="aiMode" value="any" checked />
+          <div class="fc-title">Any</div>
+        </label>
+        <label class="filter-card">
+          <input type="radio" name="aiMode" value="AI-powered" />
+          <div class="fc-title">AI-powered</div>
+          <div class="fc-desc">Core product uses AI/ML</div>
+        </label>
+        <label class="filter-card">
+          <input type="radio" name="aiMode" value="No AI" />
+          <div class="fc-title">No AI</div>
+          <div class="fc-desc">Traditional SaaS or service</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <label class="label" for="context">Additional context <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional — saved between sessions)</span></label>
       <textarea id="context" placeholder="e.g. I have a background in consulting and access to mid-market CFOs."></textarea>
     </div>
 
@@ -256,6 +281,7 @@
       <button class="primary" id="generate-btn">Generate ideas</button>
       <button class="ghost hidden" id="regenerate-btn">Regenerate</button>
     </div>
+    <div class="regen-warning hidden" id="regen-warning"></div>
 
     <div class="status" id="status"></div>
     <div id="results"></div>
@@ -265,22 +291,20 @@
   <section id="view-saved" class="hidden">
     <h1>Saved ideas</h1>
     <p class="sub">Rank, annotate, and prioritize. Stored locally in your browser.</p>
-
     <div class="saved-controls">
       <div>
-        <span class="label" style="display: inline; margin-right: 8px;">Sort by</span>
+        <span class="label" style="display:inline;margin-right:7px;">Sort by</span>
         <select id="sort-by">
           <option value="rank">Rank (high → low)</option>
           <option value="date">Recently saved</option>
           <option value="domain">Domain</option>
         </select>
       </div>
-      <div style="display: flex; gap: 8px;">
-        <button class="ghost" id="export-btn" style="padding: 8px 14px; font-size: 13px;">Export all (JSON)</button>
-        <button class="ghost" id="clear-btn" style="padding: 8px 14px; font-size: 13px; color: var(--danger);">Clear all</button>
+      <div style="display:flex;gap:7px;">
+        <button class="ghost" id="export-btn" style="padding:7px 12px;font-size:12px;">Export all (JSON)</button>
+        <button class="ghost" id="clear-btn" style="padding:7px 12px;font-size:12px;color:var(--danger);">Clear all</button>
       </div>
     </div>
-
     <div class="saved-list" id="saved-list"></div>
   </section>
 </main>
@@ -288,36 +312,45 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ============================================================
-// State
-// ============================================================
 const STORAGE_KEY = 'sig.savedIdeas';
+const CONTEXT_KEY = 'sig.context';
 let lastRequestPayload = null;
-let currentStreamCards = []; // accumulated raw markdown per card during stream
+let currentStreamCards = [];
+let regenCount = 0;
+const MAX_REGEN = 3;
 
 // ============================================================
 // View routing
 // ============================================================
 function setView(name) {
-  document.querySelectorAll('[data-view]').forEach(b => {
-    b.classList.toggle('active', b.dataset.view === name);
-  });
+  document.querySelectorAll('[data-view]').forEach(b =>
+    b.classList.toggle('active', b.dataset.view === name));
   document.getElementById('view-generate').classList.toggle('hidden', name !== 'generate');
   document.getElementById('view-saved').classList.toggle('hidden', name !== 'saved');
   if (name === 'saved') renderSaved();
 }
-document.querySelectorAll('[data-view]').forEach(b => {
-  b.addEventListener('click', () => setView(b.dataset.view));
-});
+document.querySelectorAll('[data-view]').forEach(b =>
+  b.addEventListener('click', () => setView(b.dataset.view)));
 
-// Radio card selection
-document.querySelectorAll('#problem-grid .radio-card').forEach(card => {
-  card.addEventListener('click', () => {
-    document.querySelectorAll('#problem-grid .radio-card').forEach(c => c.classList.remove('selected'));
-    card.classList.add('selected');
-    card.querySelector('input').checked = true;
+// ============================================================
+// Filter card selection
+// ============================================================
+['problem-grid','mode-grid','ai-grid'].forEach(gridId => {
+  document.querySelectorAll('#' + gridId + ' .filter-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('#' + gridId + ' .filter-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      card.querySelector('input').checked = true;
+    });
   });
 });
+
+// ============================================================
+// Persistent context
+// ============================================================
+const ctxTA = document.getElementById('context');
+ctxTA.value = localStorage.getItem(CONTEXT_KEY) || '';
+ctxTA.addEventListener('input', () => localStorage.setItem(CONTEXT_KEY, ctxTA.value));
 
 // ============================================================
 // Storage helpers
@@ -335,11 +368,11 @@ function updateSavedCount() {
   document.getElementById('saved-count').textContent = n ? `(${n})` : '';
 }
 function isSaved(id) { return loadSaved().some(x => x.id === id); }
-function ideaIdFor(domain, name, markdown) {
-  // simple stable hash
+function savedTitles() { return loadSaved().map(x => x.title).filter(Boolean); }
+function ideaIdFor(domain, title, markdown) {
   let h = 0;
-  const s = (domain || '') + '|' + (name || '') + '|' + (markdown || '').slice(0, 200);
-  for (let i = 0; i < s.length; i++) { h = ((h << 5) - h + s.charCodeAt(i)) | 0; }
+  const s = (domain||'') + '|' + (title||'') + '|' + (markdown||'').slice(0,200);
+  for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
   return 'i_' + Math.abs(h).toString(36);
 }
 
@@ -356,35 +389,42 @@ function toast(msg) {
 }
 
 // ============================================================
-// Markdown rendering for a single idea card
+// Markdown rendering
 // ============================================================
 function renderIdeaMarkdown(md) {
-  // returns HTML for everything *after* the ## heading line
   const lines = md.split('\n');
   let i = 0;
-  // skip the heading line if present
   if (lines[0] && lines[0].startsWith('## ')) i = 1;
   let html = '';
   while (i < lines.length) {
     const line = lines[i];
     const bold = line.match(/^\*\*(.+?)\*\*\s*$/);
     if (bold) {
-      html += `<div class="section-label">${escapeHtml(bold[1])}</div>`;
+      const sectionName = bold[1];
       i++;
       let body = '';
-      while (i < lines.length && !/^\*\*(.+?)\*\*\s*$/.test(lines[i]) && !lines[i].startsWith('## ') && lines[i].trim() !== '---') {
+      while (i < lines.length && !/^\*\*/.test(lines[i]) && !lines[i].startsWith('## ') && lines[i].trim() !== '---') {
         body += lines[i] + '\n';
         i++;
       }
-      html += `<div class="section-body">${formatBody(body.trim())}</div>`;
+      if (sectionName === 'Name ideas') {
+        const names = body.trim().split(/[,\n]+/).map(s => s.replace(/^[-•*\s]+/, '').trim()).filter(Boolean);
+        if (names.length) {
+          html += `<div class="section-label">Name ideas</div>`;
+          html += `<div class="name-chips">${names.map(n => `<span class="name-chip">${escapeHtml(n)}</span>`).join('')}</div>`;
+        }
+      } else {
+        html += `<div class="section-label">${escapeHtml(sectionName)}</div>`;
+        html += `<div class="section-body">${formatBody(body.trim())}</div>`;
+      }
     } else {
       i++;
     }
   }
   return html;
 }
+
 function formatBody(text) {
-  // numbered list?
   if (/^\s*1\.\s/.test(text)) {
     const items = text.split(/\n(?=\s*\d+\.\s)/).map(s => s.replace(/^\s*\d+\.\s*/, '').trim());
     return '<ol>' + items.map(it => `<li>${escapeHtml(it)}</li>`).join('') + '</ol>';
@@ -392,9 +432,9 @@ function formatBody(text) {
   return escapeHtml(text);
 }
 function escapeHtml(s) {
-  return s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  return (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 }
-function extractCompanyName(md) {
+function extractTitle(md) {
   const m = md.match(/^##\s+\[?([^\]\n]+?)\]?\s*$/m);
   return m ? m[1].trim() : 'Untitled idea';
 }
@@ -407,110 +447,111 @@ async function streamResults(payload) {
   const results = document.getElementById('results');
   const status = document.getElementById('status');
   const genBtn = document.getElementById('generate-btn');
-  const surpriseBtn = document.getElementById('surprise-btn');
+  const surpriseBtn = document.getElementById('nav-surprise-btn');
   const regenBtn = document.getElementById('regenerate-btn');
 
   results.innerHTML = '';
-  status.textContent = 'Talking to Claude…';
-  genBtn.disabled = true; surpriseBtn.disabled = true; regenBtn.classList.add('hidden');
+  status.textContent = 'Thinking…';
+  genBtn.disabled = true;
+  surpriseBtn.disabled = true;
+  regenBtn.classList.add('hidden');
   currentStreamCards = [];
 
   let buffer = '';
-  let currentIdx = -1; // index into currentStreamCards
+  let currentIdx = -1;
 
-  function flushBufferIntoCards(newText) {
+  function flushBuffer(newText) {
     buffer += newText;
-    // Split on "## " at start of line
-    // Process pieces: first piece (before any ##) ignored; each '## ...' starts a new idea
-    // We track currentIdx and currentStreamCards[currentIdx] as raw md
     let rest = buffer;
-    let consumed = 0;
-    // Repeatedly look for next "## " marker
+    if (currentIdx === -1) {
+      const first = rest.indexOf('## ');
+      if (first === -1) { buffer = rest; return; }
+      currentIdx = 0;
+      currentStreamCards[currentIdx] = '';
+      rest = rest.slice(first);
+      ensureCard(currentIdx);
+    }
     while (true) {
-      const idx = rest.indexOf('## ', consumed === 0 && currentIdx === -1 ? 0 : consumed);
-      if (currentIdx === -1) {
-        // looking for first heading
-        const firstIdx = rest.indexOf('## ');
-        if (firstIdx === -1) { buffer = rest; return; }
-        currentIdx = 0;
-        currentStreamCards[currentIdx] = '';
-        rest = rest.slice(firstIdx);
-        ensureCardEl(currentIdx);
-      }
-      // Find next "## " AFTER position 0
-      const nextHeading = rest.indexOf('\n## ', 1);
-      if (nextHeading === -1) {
-        // append rest to current
+      const nextH = rest.indexOf('\n## ', 1);
+      if (nextH === -1) {
         currentStreamCards[currentIdx] = rest;
-        renderCardEl(currentIdx);
+        renderCard(currentIdx);
         buffer = rest;
         return;
-      } else {
-        currentStreamCards[currentIdx] = rest.slice(0, nextHeading);
-        renderCardEl(currentIdx);
-        rest = rest.slice(nextHeading + 1); // keep "## ..."
-        currentIdx++;
-        currentStreamCards[currentIdx] = '';
-        ensureCardEl(currentIdx);
       }
+      currentStreamCards[currentIdx] = rest.slice(0, nextH);
+      renderCard(currentIdx);
+      rest = rest.slice(nextH + 1);
+      currentIdx++;
+      currentStreamCards[currentIdx] = '';
+      ensureCard(currentIdx);
     }
   }
 
-  function ensureCardEl(idx) {
+  function ensureCard(idx) {
     if (document.getElementById('card-' + idx)) return;
     const div = document.createElement('div');
-    div.className = 'card';
-    div.id = 'card-' + idx;
-    div.innerHTML = '<h2>…<span class="cursor"></span></h2>';
+    div.className = 'card'; div.id = 'card-' + idx;
+    div.innerHTML = '<h2 style="color:var(--ink-soft);font-weight:400">Generating…</h2>';
     results.appendChild(div);
   }
 
-  function renderCardEl(idx) {
+  function renderCard(idx) {
     const el = document.getElementById('card-' + idx);
     if (!el) return;
     const md = currentStreamCards[idx] || '';
-    const name = extractCompanyName(md);
-    const body = renderIdeaMarkdown(md);
-    el.innerHTML = `<h2>${escapeHtml(name)}</h2>${body}`;
+    const title = extractTitle(md);
+    el.innerHTML = `<h2>${escapeHtml(title)}</h2>${renderIdeaMarkdown(md)}`;
   }
 
   function finalizeCards() {
+    const domain = payload.domain === 'random' ? 'Mixed' : payload.domain;
+    let savedCount = 0;
     currentStreamCards.forEach((md, idx) => {
       const el = document.getElementById('card-' + idx);
       if (!el) return;
-      const name = extractCompanyName(md);
-      const domain = payload.domain === 'random' ? 'Mixed' : payload.domain;
-      const id = ideaIdFor(domain, name, md);
-      const body = renderIdeaMarkdown(md);
-      const savedAlready = isSaved(id);
+      const title = extractTitle(md);
+      const id = ideaIdFor(domain, title, md);
+      const alreadySaved = isSaved(id);
+      if (alreadySaved) savedCount++;
       el.innerHTML =
-        `<h2>${escapeHtml(name)} <span class="badge">${escapeHtml(domain)}</span></h2>` +
-        body +
+        `<h2>${escapeHtml(title)}</h2>` +
+        renderIdeaMarkdown(md) +
         `<div class="card-actions">
-           <button data-act="save" data-id="${id}" class="${savedAlready ? 'saved' : ''}">${savedAlready ? 'Saved ✓' : 'Save idea'}</button>
+           <button data-act="save" data-id="${id}" class="${alreadySaved ? 'saved' : ''}">${alreadySaved ? 'Saved ✓' : 'Save idea'}</button>
            <button data-act="download" data-id="${id}">Download .txt</button>
          </div>`;
-      el.querySelector('[data-act="save"]').addEventListener('click', (e) => {
+      el.querySelector('[data-act="save"]').addEventListener('click', e => {
         const btn = e.currentTarget;
         if (isSaved(id)) { toast('Already saved'); return; }
         const arr = loadSaved();
-        arr.push({
-          id, savedAt: Date.now(), rank: 0, notes: '',
-          markdown: md, companyName: name, domain
-        });
+        arr.push({ id, savedAt: Date.now(), rank: 0, notes: '', markdown: md, title, domain });
         writeSaved(arr);
         btn.classList.add('saved');
         btn.textContent = 'Saved ✓';
-        toast('Saved to your library');
+        toast('Saved');
       });
       el.querySelector('[data-act="download"]').addEventListener('click', () => {
         const blob = new Blob([md], { type: 'text/plain' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = url; a.download = `${name.replace(/[^a-z0-9]+/gi, '_')}.txt`;
+        a.href = url; a.download = title.replace(/[^a-z0-9]+/gi,'_') + '.txt';
         a.click(); URL.revokeObjectURL(url);
       });
     });
+    // If most ideas are already saved, warn and count toward regen limit
+    if (savedCount >= Math.ceil(currentStreamCards.length / 2)) {
+      regenCount++;
+    }
+    if (regenCount >= MAX_REGEN) {
+      regenBtn.classList.add('hidden');
+      document.getElementById('regen-warning').textContent =
+        "You've saved most of these ideas. Try changing your filters for fresh directions.";
+      document.getElementById('regen-warning').classList.remove('hidden');
+    } else {
+      regenBtn.classList.remove('hidden');
+      document.getElementById('regen-warning').classList.add('hidden');
+    }
   }
 
   try {
@@ -532,47 +573,58 @@ async function streamResults(payload) {
         const chunk = sseBuf.slice(0, idx);
         sseBuf = sseBuf.slice(idx + 2);
         if (!chunk.startsWith('data: ')) continue;
-        const payloadStr = chunk.slice(6);
-        if (payloadStr === '[DONE]') break;
+        const raw = chunk.slice(6);
+        if (raw === '[DONE]') break;
         let text;
-        try { text = JSON.parse(payloadStr); }
-        catch (e) { console.warn('SSE parse fail:', payloadStr); continue; }
-        if (typeof text === 'string' && text.startsWith('[ERROR]')) {
-          throw new Error(text);
-        }
-        flushBufferIntoCards(text);
+        try { text = JSON.parse(raw); } catch { continue; }
+        if (typeof text === 'string' && text.startsWith('[ERROR]')) throw new Error(text);
+        flushBuffer(text);
       }
     }
-    if (currentStreamCards.length === 0) {
-      throw new Error('Empty response from server. Check ANTHROPIC_API_KEY env var in Vercel.');
-    }
+    if (currentStreamCards.length === 0) throw new Error('No ideas returned. Check ANTHROPIC_API_KEY in Vercel env vars.');
     status.textContent = '';
     finalizeCards();
-    regenBtn.classList.remove('hidden');
   } catch (err) {
-    console.error('streamResults failed:', err);
-    status.innerHTML = '<span style="color: var(--danger);">Error: ' + escapeHtml(err.message) + '</span>';
+    console.error('stream error:', err);
+    status.innerHTML = '<span style="color:var(--danger)">Error: ' + escapeHtml(err.message) + '</span>';
+    regenBtn.classList.remove('hidden');
   } finally {
-    genBtn.disabled = false; surpriseBtn.disabled = false;
+    genBtn.disabled = false;
+    surpriseBtn.disabled = false;
   }
 }
 
 // ============================================================
 // Generate handlers
 // ============================================================
+function buildPayload(opts = {}) {
+  return {
+    domain: opts.random ? 'random' : document.getElementById('domain').value,
+    problemType: opts.random ? 'random' : document.querySelector('input[name="problemType"]:checked').value,
+    execMode: opts.random ? 'any' : document.querySelector('input[name="execMode"]:checked').value,
+    aiMode: opts.random ? 'any' : document.querySelector('input[name="aiMode"]:checked').value,
+    context: document.getElementById('context').value,
+    excludeTitles: savedTitles(),
+  };
+}
+
 document.getElementById('generate-btn').addEventListener('click', () => {
-  const domain = document.getElementById('domain').value;
-  const problemType = document.querySelector('input[name="problemType"]:checked').value;
-  const context = document.getElementById('context').value;
-  streamResults({ domain, problemType, context });
+  regenCount = 0;
+  document.getElementById('regen-warning').classList.add('hidden');
+  streamResults(buildPayload());
 });
 
-document.getElementById('surprise-btn').addEventListener('click', () => {
-  streamResults({ domain: 'random', problemType: 'random', context: '' });
+document.getElementById('nav-surprise-btn').addEventListener('click', () => {
+  regenCount = 0;
+  document.getElementById('regen-warning').classList.add('hidden');
+  streamResults(buildPayload({ random: true }));
 });
 
 document.getElementById('regenerate-btn').addEventListener('click', () => {
-  if (lastRequestPayload) streamResults(lastRequestPayload);
+  if (lastRequestPayload) {
+    lastRequestPayload.excludeTitles = savedTitles();
+    streamResults(lastRequestPayload);
+  }
 });
 
 // ============================================================
@@ -582,41 +634,34 @@ function renderSaved() {
   const list = document.getElementById('saved-list');
   const sortBy = document.getElementById('sort-by').value;
   let items = loadSaved();
-  if (sortBy === 'rank') items.sort((a, b) => (b.rank || 0) - (a.rank || 0) || b.savedAt - a.savedAt);
-  else if (sortBy === 'date') items.sort((a, b) => b.savedAt - a.savedAt);
-  else if (sortBy === 'domain') items.sort((a, b) => (a.domain || '').localeCompare(b.domain || ''));
-
-  if (items.length === 0) {
-    list.innerHTML = '<div class="empty">No saved ideas yet. Generate some, then click <em>Save idea</em>.</div>';
-    return;
+  if (sortBy === 'rank') items.sort((a,b) => (b.rank||0)-(a.rank||0) || b.savedAt-a.savedAt);
+  else if (sortBy === 'date') items.sort((a,b) => b.savedAt-a.savedAt);
+  else if (sortBy === 'domain') items.sort((a,b) => (a.domain||'').localeCompare(b.domain||''));
+  if (!items.length) {
+    list.innerHTML = '<div class="empty">No saved ideas yet.</div>'; return;
   }
-
   list.innerHTML = items.map(it => `
     <div class="saved-row" data-id="${it.id}">
       <div class="head">
         <div>
-          <h3>${escapeHtml(it.companyName)} <span class="badge">${escapeHtml(it.domain || 'Mixed')}</span></h3>
-          <div style="color: var(--ink-soft); font-size: 12px; margin-top: 4px;">
-            Saved ${new Date(it.savedAt).toLocaleDateString()}
-          </div>
+          <h3>${escapeHtml(it.title || it.companyName || 'Untitled')} <span class="badge">${escapeHtml(it.domain||'')}</span></h3>
+          <div style="color:var(--ink-soft);font-size:11px;margin-top:3px;">Saved ${new Date(it.savedAt).toLocaleDateString()}</div>
         </div>
         <div class="stars" data-stars-for="${it.id}">
-          ${[1,2,3,4,5].map(n => `<span class="star ${n <= (it.rank||0) ? 'on' : ''}" data-rank="${n}">★</span>`).join('')}
+          ${[1,2,3,4,5].map(n=>`<span class="star ${n<=(it.rank||0)?'on':''}" data-rank="${n}">★</span>`).join('')}
         </div>
       </div>
       <details>
-        <summary style="cursor: pointer; color: var(--ink-soft); font-size: 13px; margin: 6px 0;">Show full idea</summary>
-        <div style="margin-top: 8px;">${renderIdeaMarkdown(it.markdown)}</div>
+        <summary style="cursor:pointer;color:var(--ink-soft);font-size:12px;margin:4px 0;">Show full idea</summary>
+        <div style="margin-top:6px;">${renderIdeaMarkdown(it.markdown)}</div>
       </details>
-      <textarea data-notes-for="${it.id}" placeholder="Notes — why this one, blockers, next steps…">${escapeHtml(it.notes || '')}</textarea>
+      <textarea data-notes-for="${it.id}" placeholder="Notes…">${escapeHtml(it.notes||'')}</textarea>
       <div class="row-actions">
         <button data-download="${it.id}">Download .txt</button>
         <button data-delete="${it.id}" class="danger">Delete</button>
       </div>
     </div>
   `).join('');
-
-  // Wire star ranks
   list.querySelectorAll('[data-stars-for]').forEach(group => {
     const id = group.dataset.starsFor;
     group.querySelectorAll('.star').forEach(star => {
@@ -624,16 +669,10 @@ function renderSaved() {
         const rank = parseInt(star.dataset.rank);
         const arr = loadSaved();
         const item = arr.find(x => x.id === id);
-        if (item) {
-          item.rank = item.rank === rank ? 0 : rank;
-          writeSaved(arr);
-          renderSaved();
-        }
+        if (item) { item.rank = item.rank === rank ? 0 : rank; writeSaved(arr); renderSaved(); }
       });
     });
   });
-
-  // Notes (save on blur to avoid thrash)
   list.querySelectorAll('[data-notes-for]').forEach(ta => {
     ta.addEventListener('blur', () => {
       const id = ta.dataset.notesFor;
@@ -642,47 +681,34 @@ function renderSaved() {
       if (item) { item.notes = ta.value; writeSaved(arr); }
     });
   });
-
-  // Delete
   list.querySelectorAll('[data-delete]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const id = btn.dataset.delete;
-      writeSaved(loadSaved().filter(x => x.id !== id));
+      writeSaved(loadSaved().filter(x => x.id !== btn.dataset.delete));
       renderSaved();
     });
   });
-
-  // Download
   list.querySelectorAll('[data-download]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const id = btn.dataset.download;
-      const item = loadSaved().find(x => x.id === id);
+      const item = loadSaved().find(x => x.id === btn.dataset.download);
       if (!item) return;
       const blob = new Blob([item.markdown], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url; a.download = `${item.companyName.replace(/[^a-z0-9]+/gi, '_')}.txt`;
+      a.href = url; a.download = (item.title||'idea').replace(/[^a-z0-9]+/gi,'_') + '.txt';
       a.click(); URL.revokeObjectURL(url);
     });
   });
 }
-
 document.getElementById('sort-by').addEventListener('change', renderSaved);
-
 document.getElementById('export-btn').addEventListener('click', () => {
-  const data = loadSaved();
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
+  const blob = new Blob([JSON.stringify(loadSaved(), null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
-  a.href = url; a.download = `saved_ideas_${new Date().toISOString().slice(0,10)}.json`;
-  a.click(); URL.revokeObjectURL(url);
+  a.href = URL.createObjectURL(blob);
+  a.download = `saved_ideas_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
 });
-
 document.getElementById('clear-btn').addEventListener('click', () => {
-  if (confirm('Delete all saved ideas? This cannot be undone.')) {
-    writeSaved([]);
-    renderSaved();
-  }
+  if (confirm('Delete all saved ideas?')) { writeSaved([]); renderSaved(); }
 });
 
 updateSavedCount();
