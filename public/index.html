@@ -534,18 +534,24 @@ async function streamResults(payload) {
         if (!chunk.startsWith('data: ')) continue;
         const payloadStr = chunk.slice(6);
         if (payloadStr === '[DONE]') break;
-        try {
-          const text = JSON.parse(payloadStr);
-          if (text.startsWith('[ERROR]')) throw new Error(text);
-          flushBufferIntoCards(text);
-        } catch (e) { /* parse failures - ignore */ }
+        let text;
+        try { text = JSON.parse(payloadStr); }
+        catch (e) { console.warn('SSE parse fail:', payloadStr); continue; }
+        if (typeof text === 'string' && text.startsWith('[ERROR]')) {
+          throw new Error(text);
+        }
+        flushBufferIntoCards(text);
       }
+    }
+    if (currentStreamCards.length === 0) {
+      throw new Error('Empty response from server. Check ANTHROPIC_API_KEY env var in Vercel.');
     }
     status.textContent = '';
     finalizeCards();
     regenBtn.classList.remove('hidden');
   } catch (err) {
-    status.textContent = 'Error: ' + err.message;
+    console.error('streamResults failed:', err);
+    status.innerHTML = '<span style="color: var(--danger);">Error: ' + escapeHtml(err.message) + '</span>';
   } finally {
     genBtn.disabled = false; surpriseBtn.disabled = false;
   }
